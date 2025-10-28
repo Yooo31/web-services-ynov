@@ -6,8 +6,10 @@ const createItemRoute = require('./createItem/route');
 const updateItemRoute = require('./updateItem/route');
 const deleteItemRoute = require('./deleteItem/route');
 
-module.exports = (app) => {
+module.exports = (app, limiter) => {
   const router = require('express').Router();
+
+  router.use(limiter);
 
   router.get('/', (req, res) => getCollectionRoute(req, res, dbBooks));
   router.get('/:id', (req, res) => getItemRoute(req, res, dbBooks));
