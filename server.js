@@ -2,6 +2,8 @@ const express = require('express');
 const rateLimit = require('express-rate-limit');
 const fs = require('fs');
 const path = require('path');
+const swaggerUi = require('swagger-ui-express');
+const { generateSwaggerSpec } = require('./swagger/swaggerConfig');
 
 const app = express();
 const port = 3000;
@@ -38,6 +40,20 @@ versions.forEach(version => {
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
+
+const swaggerSpec = generateSwaggerSpec(versions);
+app.use(
+  '/docs',
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerSpec, {
+    swaggerOptions: {
+      displayRequestDuration: true,
+      persistAuthorization: true,
+      docExpansion: 'none',
+    },
+  })
+);
+
 
 app.listen(port, () => {
   console.log(`🚀 Listening on http://localhost:${port}`);

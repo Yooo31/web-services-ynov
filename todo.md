@@ -1,6 +1,6 @@
 [ ] Refactoriser les endpoints : noms cohérents, verbes HTTP corrects.
 [ ] Ajouter la pagination sur une ressource.
-[ ] Introduire un versioning /v1/.
+[x] Introduire un versioning /v1/.
 [ ] Ajouter des status codes explicites.
 
 Hateoas implementation for API responses
@@ -10,6 +10,6 @@ Hateoas implementation for API responses
 [ ] Ajouter des tests unitaires pour vérifier la présence et l'exactitude des liens HATEOAS dans les réponses API.
 
 Swagger
-[ ] Installer swagger-ui-express ou équivalent.
-[ ] Créer une route /docs affichant Swagger UI.
-[ ] Générer la documentation OpenAPI automatiquement.
+[x] Installer swagger-ui-express ou équivalent.
+[x] Créer une route /docs affichant Swagger UI.
+[x] Générer la documentation OpenAPI automatiquement.
