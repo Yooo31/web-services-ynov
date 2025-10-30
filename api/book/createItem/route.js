@@ -1,4 +1,6 @@
-module.exports = async (req, res, db) => {
+const dbBooks = require("../../proxy/dbBooks");
+
+module.exports = async (req, res) => {
   try {
     const newBookData = req.body;
 
@@ -6,7 +8,7 @@ module.exports = async (req, res, db) => {
       return res.status(400).json({ error: 'Title is required to create a new book.' });
     }
 
-    const createdBook = await db.addBook(newBookData);
+    const createdBook = await dbBooks.addBook(newBookData);
 
     res.status(201).json(createdBook);
   } catch (error) {

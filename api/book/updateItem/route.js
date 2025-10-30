@@ -1,4 +1,6 @@
-module.exports = async (req, res, db) => {
+const dbBooks = require("../../proxy/dbBooks");
+
+module.exports = async (req, res) => {
   try {
     const { id } = req.params;
     const updatedBookData = req.body;
@@ -11,12 +13,12 @@ module.exports = async (req, res, db) => {
         return res.status(400).json({ error: 'No data provided for update.' });
     }
 
-    const book = await db.getById(id);
+    const book = await dbBooks.getById(id);
     if (!book) {
         return res.status(404).json({ error: `Book with ID ${id} not found.` });
     }
 
-    const result = await db.updateBook(id, updatedBookData);
+    const result = await dbBooks.updateBook(id, updatedBookData);
 
     res.status(200).json(result);
   } catch (error) {

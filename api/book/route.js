@@ -1,4 +1,3 @@
-const dbBooks = require("../../proxy/dbBooks");
 const requireWriteAccess = require("../../middleware/checkPermissions")(["writer"]);
 const requireAdminAccess = require("../../middleware/checkPermissions")(["admin"]);
 
@@ -13,11 +12,11 @@ module.exports = (app, limiter) => {
 
   router.use(limiter);
 
-  router.get('/', (req, res) => getCollectionRoute(req, res, dbBooks));
-  router.get('/:id', (req, res) => getItemRoute(req, res, dbBooks));
-  router.post('/', requireWriteAccess, (req, res) => createItemRoute(req, res, dbBooks));
-  router.put('/:id', requireWriteAccess, (req, res) => updateItemRoute(req, res, dbBooks));
-  router.delete('/:id', requireAdminAccess, (req, res) => deleteItemRoute(req, res, dbBooks));
+  router.get('/', (req, res) => getCollectionRoute(req, res));
+  router.get('/:id', (req, res) => getItemRoute(req, res));
+  router.post('/', requireWriteAccess, (req, res) => createItemRoute(req, res));
+  router.put('/:id', requireWriteAccess, (req, res) => updateItemRoute(req, res));
+  router.delete('/:id', requireAdminAccess, (req, res) => deleteItemRoute(req, res));
 
   app.use('/api/book', router);
 };

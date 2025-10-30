@@ -1,6 +1,8 @@
-module.exports = async (req, res, db) => {
+const dbBooks = require("../../proxy/dbBooks");
+
+module.exports = async (req, res) => {
   try {
-    const books = await db.getAll();
+    const books = await dbBooks.getAll();
     res.status(200).json(books);
   } catch (error) {
     console.error(error);

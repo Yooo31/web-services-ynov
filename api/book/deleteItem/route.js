@@ -1,4 +1,6 @@
-module.exports = async (req, res, db) => {
+const dbBooks = require("../../proxy/dbBooks");
+
+module.exports = async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -6,7 +8,7 @@ module.exports = async (req, res, db) => {
       return res.status(400).json({ error: 'Book ID is required for deletion.' });
     }
 
-    const deleted = await db.deleteBook(id);
+    const deleted = await dbBooks.deleteBook(id);
 
     if (deleted) {
       res.status(204).send();
