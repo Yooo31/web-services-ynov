@@ -1,4 +1,4 @@
-const dbBooks = require("../../proxy/dbBooks");
+const dbBooks = require("../../../../proxy/dbBooks");
 
 module.exports = async (req, res) => {
   try {
