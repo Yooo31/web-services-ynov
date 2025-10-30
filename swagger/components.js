@@ -14,6 +14,13 @@
  *         author:
  *           type: string
  *           example: "F. Scott Fitzgerald"
+ *         _links:
+ *           type: object
+ *           additionalProperties:
+ *             type: object
+ *             properties:
+ *               href:
+ *                 type: string
  *     PaginationMeta:
  *       type: object
  *       properties:
