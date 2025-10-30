@@ -26,7 +26,7 @@ function generateSwaggerSpec(versions) {
         version: '1.0.0',
         description: 'Documentation générée automatiquement pour toutes les versions',
       },
-      servers: versions.map(v => ({ url: `http://localhost:3000/api/${v}` })),
+      servers: versions.map(v => ({ url: `http://localhost:3000/` })),
       components: {
         securitySchemes: {
           bearerAuth: {
