@@ -1,5 +1,5 @@
 [ ] Refactoriser les endpoints : noms cohérents, verbes HTTP corrects.
-[ ] Ajouter la pagination sur une ressource.
+[x] Ajouter la pagination sur une ressource.
 [x] Introduire un versioning /v1/.
 [ ] Ajouter des status codes explicites.
 

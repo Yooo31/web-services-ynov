@@ -3,7 +3,7 @@ const path = require('path');
 const swaggerJSDoc = require('swagger-jsdoc');
 
 function generateSwaggerSpec(versions) {
-  const apiPaths = [];
+  const apiPaths = ['./swagger/components.js'];
 
   versions.forEach(version => {
     const versionPath = path.join(__dirname, '..', 'api', version);
